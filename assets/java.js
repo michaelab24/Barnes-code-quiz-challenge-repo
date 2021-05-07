@@ -17,3 +17,47 @@ buildQuiz();
 startButton.addEventListener ("click", startQuiz)
 submitButton.addEventListener("click", showResults);
 
+var theQuestions = [
+    {
+        question: "",
+    answers: {
+      a: "",
+      b: "",
+      c: "",
+      d: ""
+    },
+    correctAnswer: ""
+    },
+    {
+        question: "",
+        answers: {
+          a: "",
+          b: "",
+          c: "",
+          d: ""
+        },
+        correctAnswer: ""
+      },
+      {
+        question: "",
+        answers: {
+          a: "",
+          b: "",
+          c: "",
+          d: ""
+        },
+        correctAnswer: ""
+      }
+      {
+        question: "",
+        answers: {
+          a: "",
+          b: "",
+          c: "",
+          d: ""
+        },
+        correctAnswer: ""
+      },
+      {
+];
+
