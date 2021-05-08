@@ -19,44 +19,42 @@ submitButton.addEventListener("click", showResults);
 
 var theQuestions = [
     {
-        question: "",
+        question: "A Syntax Error is?",
     answers: {
-      a: "",
-      b: "",
-      c: "",
-      d: ""
+      a: "An error you will never find",
+      b: "An error you find at the end when the program gives out a wrong value due to logic error",
+      c: "An error caused by language rules being broken.",
+      d: "An error due to user error"
     },
-    correctAnswer: ""
+    correctAnswer: "c"
     },
     {
-        question: "",
+        question: "A memory location that holds a single letter or number.",
         answers: {
-          a: "",
-          b: "",
-          c: "",
-          d: ""
+          a: "Double",
+          b: "Int",
+          c: "Char",
+          d: "Word"
         },
-        correctAnswer: ""
+        correctAnswer: "c"
       },
       {
-        question: "",
+        question: "A short sections of code written to complete a task. ",
         answers: {
-          a: "",
-          b: "",
-          c: "",
-          d: ""
+          a: "Function",
+          b: "Array",
+          c: "Buffer"
         },
-        correctAnswer: ""
+        correctAnswer: "a"
       }
       {
-        question: "",
+        question: "One loop inside the body of another loop is called ",
         answers: {
-          a: "",
-          b: "",
-          c: "",
-          d: ""
+          a: "Loop in loop",
+          b: "Nested",
+          c: "Double loops"
         },
-        correctAnswer: ""
+        correctAnswer: "b"
       },
       {
 ];
