@@ -1,7 +1,7 @@
-var startButton = document.getElementById("start")
-var quizContainer = document.getElementById("quiz");
-var resultsContainer = document.getElementById("results");
-var submitButton = document.getElementById("submit");
+const startButton = document.getElementById("start")
+const quizContainer = document.getElementById("quiz");
+const resultsContainer = document.getElementById("results");
+const submitButton = document.getElementById("submit");
 
 
 function buildQuiz(){}
@@ -17,7 +17,7 @@ buildQuiz();
 startButton.addEventListener ("click", startQuiz)
 submitButton.addEventListener("click", showResults);
 
-var theQuestions = [
+const theQuestions = [
     {
         question: "A Syntax Error is?",
     answers: {
