@@ -24,7 +24,8 @@ const theQuestions = [
     answers: {
       a: "Function",
       b: "Array",
-      c: "Buffer"
+      c: "Buffer",
+      d: "Syntax"
     },
     correctAnswer: "Function"
   },
@@ -33,7 +34,8 @@ const theQuestions = [
     answers: {
       a: "Loop in loop",
       b: "Nested",
-      c: "Double loops"
+      c: "Double loops",
+      d: "A Loopty Loop"
     },
     correctAnswer: "Nested"
   },
@@ -69,6 +71,8 @@ function getQuestion() {
   choiceElement3.textContent = theQuestions[questionindex].answers.c
   choiceElement4.textContent = theQuestions[questionindex].answers.d
 }
+
+
 
 function countdown() {
   const timeLeft = 75;
@@ -106,8 +110,14 @@ function saveResults() {
 
 
 // on submit, show results
-startButton.addEventListener("click", startQuiz)
+startButton.addEventListener("click", startQuiz);
 submitButton.addEventListener("click", saveResults);
+choiceElement1.addEventListener("click", getQuestion);
+choiceElement2.addEventListener("click", getQuestion);
+choiceElement3.addEventListener("click", getQuestion);
+choiceElement4.addEventListener("click", getQuestion);
+
+
 //event listeners for choice buttons
 //point to the check answer function
 //check to see if it is correct then increase index by one
