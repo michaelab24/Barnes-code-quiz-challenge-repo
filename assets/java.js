@@ -63,28 +63,45 @@ const titleElement = document.getElementById("title")
 
 
 function getQuestion() {
-  titleElement.textContent=theQuestions[questionindex].question;
-  choiceElement1.textContent=theQuestions[questionindex].answers.a
-  choiceElement2.textContent=theQuestions[questionindex].answers.b
-  choiceElement3.textContent=theQuestions[questionindex].answers.c
-  choiceElement4.textContent=theQuestions[questionindex].answers.d
-  }
+  titleElement.textContent = theQuestions[questionindex].question;
+  choiceElement1.textContent = theQuestions[questionindex].answers.a
+  choiceElement2.textContent = theQuestions[questionindex].answers.b
+  choiceElement3.textContent = theQuestions[questionindex].answers.c
+  choiceElement4.textContent = theQuestions[questionindex].answers.d
+}
 
+function countdown() {
+  const timeLeft = 75;
+
+  const timerTime = setInterval(function () {
+    if (timeLeft > 1) {
+
+      timerElement.textContent = timeLeft + "second(s) remaining";
+      timeLeft--;
+    }
+
+    else {
+      timerElement.textContent = "";
+      clearInterval(timerTime);
+    }
+
+  }, 1000);
+}
 
 function startQuiz() {
-  //start timer
+
   //hide start section
-  quizContainer.classList.add("hide") 
+  quizContainer.classList.add("hide")
   //show question section
   questionsContainer.classList.remove("hide")
   //show the first question
   getQuestion()
- }
+}
 
 
 function saveResults() {
   //save the score to local storage
- }
+}
 
 
 
