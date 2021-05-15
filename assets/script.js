@@ -23,7 +23,7 @@ const theQuestions = [
     correctAnswer: "Char"
   },
   {
-    question: "A short sections of code written to complete a task. ",
+    question: "A short sections of code written to complete a task.",
     answers: {
       a: "Function",
       b: "Array",
@@ -65,8 +65,7 @@ const timerElement = document.getElementById("timer")
 const initialsElement = document.getElementById("initials")
 const messageElement = document.getElementById("message")
 const titleElement = document.getElementById("title")
-
-
+const highScores = document.getElementById("highscores")
 function getQuestion() {
   titleElement.textContent = theQuestions[questionindex].question;
   choiceElement1.textContent = theQuestions[questionindex].answers.a
@@ -76,14 +75,25 @@ function getQuestion() {
 }
 
 function answerQuestion(event) {
+
   console.log(event.target.textContent)
-  if (event.target.textContent === theQuestions[0].correctAnswer) {
-    console.log("correct")
+  console.log()
+  if (event.target.textContent === theQuestions[questionindex].correctAnswer) {
+    console.log("correct") 
+    score=score+2
+    messageElement.textContent=("Correct!")
+    //add to the score
+    //show correct
   }
   else {
     console.log("incorrect")
+    score=score-1
+    timeLeft=timeLeft-5
+    messageElement.textContent=("Incorrect")
+    //subtract from the score/time
+    //show wrong
   }
-
+  questionindex++
 }
 
 
@@ -105,6 +115,11 @@ function countdown() {
   }, 1000);
 }
 
+function endGame() {
+  //display results
+  //log score
+}
+
 function startQuiz() {
 
   //hide start section
@@ -113,6 +128,7 @@ function startQuiz() {
   questionsContainer.classList.remove("hide")
   //show the first question
   countdown()
+  endGame ()
 }
 
 
@@ -120,7 +136,7 @@ function saveResults() {
   //save the score to local storage
 }
 
-
+//get a view high score button/new html
 
 // on submit, show results
 startButton.addEventListener("click", startQuiz);
