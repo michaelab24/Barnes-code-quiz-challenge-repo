@@ -1,3 +1,6 @@
+var timeLeft = 75;
+var score = 0;
+
 const theQuestions = [
   {
     question: "A Syntax Error is?",
@@ -72,14 +75,24 @@ function getQuestion() {
   choiceElement4.textContent = theQuestions[questionindex].answers.d
 }
 
+function answerQuestion(event) {
+  console.log(event.target.textContent)
+  if (event.target.textContent === theQuestions[0].correctAnswer) {
+    console.log("correct")
+  }
+  else {
+    console.log("incorrect")
+  }
+
+}
+
 
 
 function countdown() {
-  const timeLeft = 75;
 
-  const timerTime = setInterval(function () {
+  var timerTime = setInterval(function () {
     if (timeLeft > 1) {
-
+      getQuestion()
       timerElement.textContent = timeLeft + "second(s) remaining";
       timeLeft--;
     }
@@ -99,7 +112,7 @@ function startQuiz() {
   //show question section
   questionsContainer.classList.remove("hide")
   //show the first question
-  getQuestion()
+  countdown()
 }
 
 
@@ -112,10 +125,10 @@ function saveResults() {
 // on submit, show results
 startButton.addEventListener("click", startQuiz);
 submitButton.addEventListener("click", saveResults);
-choiceElement1.addEventListener("click", getQuestion);
-choiceElement2.addEventListener("click", getQuestion);
-choiceElement3.addEventListener("click", getQuestion);
-choiceElement4.addEventListener("click", getQuestion);
+choiceElement1.addEventListener("click", answerQuestion);
+choiceElement2.addEventListener("click", answerQuestion);
+choiceElement3.addEventListener("click", answerQuestion);
+choiceElement4.addEventListener("click", answerQuestion);
 
 
 //event listeners for choice buttons
