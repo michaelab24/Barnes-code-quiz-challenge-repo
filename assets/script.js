@@ -1,5 +1,6 @@
 var timeLeft = 30;
 var score = 0;
+var questionCounter = 5
 
 const theQuestions = [
   {
@@ -86,6 +87,19 @@ function getQuestion() {
   choiceElement4.textContent = theQuestions[questionindex].answers.d
 }
 
+function endGame() {
+  scoreElement.textContent = "Your Score:" + score
+  console.log("score"+score);
+  questionsContainer.classList.add("hide")
+  resultsContainer.classList.remove("hide")
+  //display results
+  //log score
+  //file:///C:/Users/m/Projects/Barnes-code-quiz-challenge/Barnes-code-quiz-challenge-repo/index.html
+  //file:///C:/Users/m/Projects/Barnes-code-quiz-challenge/Barnes-code-quiz-challenge-repo/highscores.html
+  //window.location.href = "./highscores.html"
+}
+
+
 function answerQuestion(event) {
 
   console.log(event.target.textContent)
@@ -107,7 +121,7 @@ function answerQuestion(event) {
   }
   questionindex++
   
-  if (questionindex === theQuestions.length) {
+  if (questionindex === 5 ) {
     endGame()
   }
 
@@ -116,10 +130,12 @@ function answerQuestion(event) {
 
 
 function countdown() {
-
   var timerTime = setInterval(function () {
     if (timeLeft > 1) {
-      getQuestion()
+      if (questionindex < 5) {
+        getQuestion()
+       
+      }
       timerElement.textContent = timeLeft + "second(s) remaining";
       timeLeft--;
     }
@@ -132,17 +148,6 @@ function countdown() {
   }, 1000);
 }
 
-function endGame() {
-  scoreElement.textContent = "Your Score:" + score
-  console.log("score"+score);
-  questionsContainer.classList.add("hide")
-  resultsContainer.classList.remove("hide")
-  //display results
-  //log score
-  //file:///C:/Users/m/Projects/Barnes-code-quiz-challenge/Barnes-code-quiz-challenge-repo/index.html
-  //file:///C:/Users/m/Projects/Barnes-code-quiz-challenge/Barnes-code-quiz-challenge-repo/highscores.html
-  //window.location.href = "./highscores.html"
-}
 
 function startQuiz() {
 
@@ -158,28 +163,32 @@ function startQuiz() {
 function saveResults() {
   //save the score to local storage
   //localStorage.setItem(initialsElement.value, score)
- 
+ //debugger
   highScore = score;
-  if (localStorage.getItem(initialsElement.value) > score) { //congrats new highscore
+  if (localStorage.getItem(initialsElement.value) < score) { //congrats new highscore
       highScore = localStorage.setItem(initialsElement.value, score);
   }
-
-  highScores.textContent = "HIGH SCORE IS: " + highScore + " BY " + initialsElement.value
+  
+  //highScores.textContent = "HIGH SCORE IS: " + highScore + " BY " + initialsElement.value
 
   console.log(initialsElement.value)
 
   highScoresContainer.classList.remove("hide")
+
+  highScores.textContent = initialsElement.value + "  Your Score Is:  " + highScore
+
 }
 
 function renderResults()  {
+  var highScoreString = localStorage.getItem(initialsElement.value) + "  " + localStorage.getItem(initialsElement)
+  console.log(highScoreString)
   //grab the value saved to local storage 
   //set the value of highScores equal to the data from local storage
   //re-render highScores p tag
-
 }
 
 //get a view high score button/new html
-
+//debugger
 // on submit, show results
 startButton.addEventListener("click", startQuiz);
 submitButton.addEventListener("click", saveResults);
