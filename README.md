@@ -10,6 +10,6 @@ Github: https://github.com/michaelab24/Barnes-code-quiz-challenge-repo
 
 Project: https://michaelab24.github.io/Barnes-code-quiz-challenge-repo/
 
-![Screenshot (6)](screenshot.png)
+![startscreen](screenshot.png)
 
 Also that is my attempt at putting a screenshot in the read me. Still trying to figure that out.
