@@ -1,3 +1,24 @@
 .hide {
     display:none
 }
+
+body{
+    background-color: rgb(221, 221, 216);
+}
+
+h1 {
+    font-size: xx-large;
+    text-align: center;
+}
+
+button {
+    position: relative;
+    margin:0 auto;
+    display:block;
+    background-color: purple;
+    font-size: x-large;
+    margin-top: 25px;
+    border-radius: 15px 50px 30px 5px;
+}
+ 
+
