@@ -1,4 +1,4 @@
-var timeLeft = 75;
+var timeLeft = 30;
 var score = 0;
 
 const theQuestions = [
@@ -42,7 +42,17 @@ const theQuestions = [
     },
     correctAnswer: "Nested"
   },
-
+  {
+      question: "What declaration MUST be included as the first item in an HTML document before the tag and is used to provide instructions to the web browser?",
+    answers: {
+      a: "<!DOCTYPE>",
+      b: "<code>",
+      c: "<embed>",
+      d: "<caption>"
+    },
+    correctAnswer: "<!DOCTYPE>"
+  },
+  
 ];
 let questionindex = 0
 let timer;
@@ -66,6 +76,8 @@ const initialsElement = document.getElementById("initials")
 const messageElement = document.getElementById("message")
 const titleElement = document.getElementById("title")
 const highScores = document.getElementById("highscores")
+const highScoresContainer = document.getElementById("highscorescontainer")
+
 function getQuestion() {
   titleElement.textContent = theQuestions[questionindex].question;
   choiceElement1.textContent = theQuestions[questionindex].answers.a
@@ -94,6 +106,11 @@ function answerQuestion(event) {
     //show wrong
   }
   questionindex++
+  
+  if (questionindex === theQuestions.length) {
+    endGame()
+  }
+
 }
 
 
@@ -116,8 +133,15 @@ function countdown() {
 }
 
 function endGame() {
+  scoreElement.textContent = "Your Score:" + score
+  console.log("score"+score);
+  questionsContainer.classList.add("hide")
+  resultsContainer.classList.remove("hide")
   //display results
   //log score
+  //file:///C:/Users/m/Projects/Barnes-code-quiz-challenge/Barnes-code-quiz-challenge-repo/index.html
+  //file:///C:/Users/m/Projects/Barnes-code-quiz-challenge/Barnes-code-quiz-challenge-repo/highscores.html
+  //window.location.href = "./highscores.html"
 }
 
 function startQuiz() {
@@ -128,12 +152,30 @@ function startQuiz() {
   questionsContainer.classList.remove("hide")
   //show the first question
   countdown()
-  endGame ()
 }
 
 
 function saveResults() {
   //save the score to local storage
+  //localStorage.setItem(initialsElement.value, score)
+ 
+  highScore = score;
+  if (localStorage.getItem(initialsElement.value) > score) { //congrats new highscore
+      highScore = localStorage.setItem(initialsElement.value, score);
+  }
+
+  highScores.textContent = "HIGH SCORE IS: " + highScore + " BY " + initialsElement.value
+
+  console.log(initialsElement.value)
+
+  highScoresContainer.classList.remove("hide")
+}
+
+function renderResults()  {
+  //grab the value saved to local storage 
+  //set the value of highScores equal to the data from local storage
+  //re-render highScores p tag
+
 }
 
 //get a view high score button/new html
